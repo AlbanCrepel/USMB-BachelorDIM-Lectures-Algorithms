@@ -155,9 +155,11 @@ def random_fill_sparse(table,vfill):
         
     return table
 
+"""
 #testing the random_fill_sparse function  
 size=5
 my_mat = numpy.full([size,size],'',dtype='str')
 filled_table = random_fill_sparse(my_mat,6)
 print("Here is the filled table : " + str(filled_table))
+"""
 
