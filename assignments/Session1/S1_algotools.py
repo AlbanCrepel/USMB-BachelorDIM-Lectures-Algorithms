@@ -117,16 +117,47 @@ def roi_bbox(input_image):
     d = max_value(list_y)[0]
     return numpy.array([[a,b],[a,d],[c,b],[c,d]])
 
-""" 
+"""
 #testing the roi_bbox function   
 size_rows=10
 size_cols=10
 my_mat = numpy.zeros([size_rows,size_cols], dtype=int)
-
-     
+  
 #filling the matrix
 my_mat[2:4,5:9] = 1   
 my_mat[4:7,7:9] = numpy.ones([3,2])  
 bounding_box = roi_bbox(my_mat)
-print(bounding_box)
+print("The bounding box of the matrix is : " + str(bounding_box))
 """
+
+
+import random
+def random_fill_sparse(table,vfill):
+    """
+    Function able to fill a defined number of table cells
+    @param table : the table to be filled
+    @param vfill : the number of cells to be filled
+    """
+    fill_char = 'X'
+    table_length = table.shape[0]
+    nb_of_cells = table_length * table_length
+    if vfill > nb_of_cells:
+        raise ValueError("The number of cells to be filled is too high")
+    
+    for i in range(vfill):
+        filled = False
+        while filled == False:
+            random_x = random.randint(0,table_length - 1)
+            random_y = random.randint(0,table_length - 1)
+            if table[random_x][random_y] != fill_char:
+                table[random_x][random_y] = fill_char
+                filled = True
+        
+    return table
+
+#testing the random_fill_sparse function  
+size=5
+my_mat = numpy.full([size,size],'',dtype='str')
+filled_table = random_fill_sparse(my_mat,6)
+print("Here is the filled table : " + str(filled_table))
+
