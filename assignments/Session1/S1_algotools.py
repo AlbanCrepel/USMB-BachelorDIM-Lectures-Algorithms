@@ -4,9 +4,6 @@
 """
 
 def average_above_zero(list):
-    """
-    
-    """
     sum = 0
     n = 0
     for i in list:
@@ -17,7 +14,10 @@ def average_above_zero(list):
     average = float(sum) / float(n)
     return float(average)
 
+"""
+#testing average_above_zero function
 my_list = [1,2,3,4,-7]
 result = average_above_zero(my_list)
 message = "The average of positive elements of {list_values} is : {res}".format(list_values=my_list,res=result)
 print(message)
+"""
