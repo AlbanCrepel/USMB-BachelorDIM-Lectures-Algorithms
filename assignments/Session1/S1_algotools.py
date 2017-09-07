@@ -20,9 +20,9 @@ def average_above_zero(table):
 
 """
 #testing average_above_zero function
-my_list = [1,2,3,4,-7]
-result = average_above_zero(my_list)
-message = "The average of positive elements of {list_values} is : {res}".format(list_values=my_list,res=result)
+my_table = [1,2,3,4,-7]
+result = average_above_zero(my_table)
+message = "The average of positive elements of {list_values} is : {res}".format(list_values=my_table,res=result)
 print(message)
 """
 
@@ -42,13 +42,30 @@ def max_value(table):
             max_value = item
             index_of_max_value = index
     return max_value,index_of_max_value
+    
+def min_value(table):
+    """
+    Basic function able to return the min value of a table
+    @param table : the table to be scanned
+    @throws a exception (ValueError) on an empty list
+    """
+    if len(table) == 0:
+        raise ValueError("The list is empty")
+        
+    min_value = table[0]
+    index_of_min_value = 0
+    for index,item in enumerate(table):
+        if item < min_value:
+            min_value = item
+            index_of_min_value = index
+    return min_value,index_of_min_value
            
   
-"""        
+"""      
 #testing max_value function
-my_list = [1,2,3,4,-7]
-result = max_value(my_list)
-message = "The max value of {list_values} is : {value} at index {index}".format(list_values=my_list,value=result[0],index=result[1])
+my_table = [1,2,3,4,-7]
+result = max_value(my_table)
+message = "The max value of {list_values} is : {value} at index {index}".format(list_values=my_table,value=result[0],index=result[1])
 print(message)
 """
 
@@ -66,12 +83,50 @@ def reverse_table(table):
         
     return table
 
-"""  
+"""
 #testingreverse_table function  
-my_list = [1,2,3,4,-7]
-#we store the string of the table because the initial list will change by address
-initial_table = str(my_list)
-reverse_list = reverse_table(my_list)
-message = "The list {initial_list} reversed becomes {reversed_list}".format(initial_list=initial_table,reversed_list=reverse_list)
+my_table = [1,2,3,4,-7]
+#we store the string of the table because the initial table will change by address
+initial_table = str(my_table)
+reversed_table = reverse_table(my_table)
+message = "The list {initial_table} reversed becomes {reversed_table}".format(initial_table=initial_table,reversed_table=reversed_table)
 print(message)
+"""
+
+import numpy
+def roi_bbox(input_image):
+    """
+    Function able to compute the corners' coordinates of an 'image'
+    @param input_image : the 'image' to be scanned
+    """
+    a = b = c = d = 0
+    list_x = []
+    list_y = []
+    rows_length = input_image.shape[0]
+    cols_length = input_image.shape[1]
+    
+    for row in range(rows_length):
+        for col in range(cols_length):
+            if input_image[row][col] == 1:
+                list_x.append(row)
+                list_y.append(col)
+                
+    a = min_value(list_x)[0]
+    b = min_value(list_y)[0]
+    c = max_value(list_x)[0]
+    d = max_value(list_y)[0]
+    return numpy.array([[a,b],[a,d],[c,b],[c,d]])
+
+""" 
+#testing the roi_bbox function   
+size_rows=10
+size_cols=10
+my_mat = numpy.zeros([size_rows,size_cols], dtype=int)
+
+     
+#filling the matrix
+my_mat[2:4,5:9] = 1   
+my_mat[4:7,7:9] = numpy.ones([3,2])  
+bounding_box = roi_bbox(my_mat)
+print(bounding_box)
 """
