@@ -93,12 +93,13 @@ message = "The list {initial_table} reversed becomes {reversed_table}".format(in
 print(message)
 """
 
+"""
 import numpy
 def roi_bbox(input_image):
-    """
+    
     Function able to compute the corners' coordinates of an 'image'
     @param input_image : the 'image' to be scanned
-    """
+    
     a = b = c = d = 0
     list_x = []
     list_y = []
@@ -116,7 +117,7 @@ def roi_bbox(input_image):
     c = max_value(list_x)[0]
     d = max_value(list_y)[0]
     return numpy.array([[a,b],[a,d],[c,b],[c,d]])
-
+"""
 """
 #testing the roi_bbox function   
 size_rows=10
@@ -168,12 +169,43 @@ def remove_whitespace(table):
     Function able to remove all whitespaces from a string
     @param table : the string we remove whitespaces from
     """
-    return table.replace(" ","")
+
+    nbOfCharactersDeleted = 0
+
+    for index,character in enumerate(table):
+        if character == " ":
+            table = table[:index - nbOfCharactersDeleted] + table[index-nbOfCharactersDeleted+1 :]
+            nbOfCharactersDeleted += 1
+
+    return table
 
 """
-#testing the random_fill_sparse function  
+#testing the remove_whitespace function  
 myString = "here is a string"
 print("Here is the string with whitespaces : " + myString)
 myString = remove_whitespace(myString)
 print("Here is the string without whitespaces : " + myString)
+"""
+
+def shuffle(list_in):
+    """
+    Function able to randomly select items of a list
+    @param list_in : the list to be shuffled
+    """
+    for n in reversed(xrange(len(list_in))):
+        randomIndex = random.randint(0, n)
+        indexValue = list_in[randomIndex]
+
+        list_in[randomIndex] = list_in[n]
+        list_in[n] = indexValue
+
+
+    return list_in
+
+"""
+#testing the shuffle function
+myList = range(10)
+print("list before shuffling : " + str(myList))
+myList = shuffle(myList)
+print("list after shuffling : " + str(myList))
 """
