@@ -209,3 +209,102 @@ print("list before shuffling : " + str(myList))
 myList = shuffle(myList)
 print("list after shuffling : " + str(myList))
 """
+
+"""
+1. Selective Sort
+1.a)
+10 15 7 1 3 3 9
+We start going through our vector
+1 is our minimum, we exchange 10 and 1 and restart from the index 1
+we now have 1 15 7 10 3 3 9
+the second 3 is our minimum, we exchange 15 and 3 and restart from index 2
+we now have 1 3 7 10 15 3 9
+the other 3 is our minimum, we exchange 7 and 3 and restart from index 3
+we now have 1 3 3 10 15 7 9
+7 is our minimum, we exchange 10 and 7 and restart from index 4
+we now have 1 3 3 7 15 10 9
+9 is our minimum, we exchange 15 and 9 and restart from index 5
+we now have 1 3 3 7 9 10 15
+there are no permutation, so the the vector is sorted
+1.b) No the number of iterations doesn't depend on the vector content
+1.c) 6 iterations are required to sort the vector (in 2 last items are already sorted in the last iteration)
+1.d) 5 permutations are applied
+1.e) 7(7-1)/2 = 21 So 21 comparisons are applied
+1.f) The complexity of this algorithm is O(n^2)
+1.g) In the worst case of vector, we have
+n = 50 : 49 permutation, 50(50-1)/2 = 1225 comparisons
+n = 100 : 99 permutations, 100(100-1)/2 = 4950 comparisons
+n = 500 : 499 permutations, 500(500-1)/2 = 124750 comparisons
+"""
+
+def sort_selective(list_in):
+    """
+    Function able to sort a list
+    @param list_in : the list to be sorted
+    """
+    for i in xrange(len(list_in) -1):
+        minIndex = i
+        for j in xrange(i, len(list_in)):
+            if list_in[j] < list_in[minIndex]:
+                minIndex = j
+
+        if minIndex != i:
+            tempValue = list_in[i]
+            list_in[i] = list_in[minIndex]
+            list_in[minIndex] = tempValue
+
+    return list_in
+
+"""
+#testing the sort_selective function
+myList = [10, 15, 7, 1, 3, 3, 9]
+print("list before sorting : " + str(myList))
+myList = sort_selective(myList)
+print("list after sorting : " + str(myList))
+"""
+
+"""
+2. Bubble Sort
+2.a) 
+10 15 7 1 3 3 9
+We start going through our vector
+We exchange 15 and 7
+we now have 10 7 15 1 3 3 9
+We exchange 15 and 1
+we now have 10 7 1 15 3 3 9
+We exchange 3 and 15
+we now have 10 7 1 3 15 3 9
+We exchange 3 and 15
+we now have 10 7 1 3 3 15 9
+We exchange 9 and 15
+we now have 10 7 1 3 3 9 15
+***We restart going through our vector from the beginning
+we exchange 10 and 7
+we now have 7 10 1 3 3 9 15
+we exchange 10 and 1
+we now have 7 1 10 3 3 9 15
+we exchange 10 and 3
+we now have 7 1 3 10 3 9 15
+we exchange 10 and 3
+we now have 7 1 3 3 10 9 15
+we exchange 10 and 9
+we now have 7 1 3 3 9 10 15
+***We restart going through our vector from the beginning
+we exchange 7 and 1
+we now have 1 7 3 3 9 10 15
+we exchange 7 and 3
+we now have 1 3 7 3 9 10 15
+we exchange 7 and 3
+we now have 1 3 3 7 9 10 15
+***We restart going through our vector from the beginning
+there are no permutation, so the the vector is sorted
+2.b) Yes the number of iterations depend on the vector content
+2.c) 14 iterations are needed to sort the vector
+2.d) 13 permutations are applied
+2.e) 19 comparisons are applied
+2.f) The complexity of this algorithm is O(n^2)
+1.g) In the worst case of vector, we have
+n = 50 : 1225-50 = 1175 permutation, 50(50-1)/2 = 1225 comparisons
+n = 100 : 4950 - 100 = 4850 permutations, 100(100-1)/2 = 4950 comparisons
+n = 500 : 124750 - 500 = 124250 permutations, 500(500-1)/2 = 124750 comparisons
+"""
