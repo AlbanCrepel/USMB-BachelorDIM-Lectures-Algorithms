@@ -93,13 +93,12 @@ message = "The list {initial_table} reversed becomes {reversed_table}".format(in
 print(message)
 """
 
-"""
 import numpy
 def roi_bbox(input_image):
-    
+    """
     Function able to compute the corners' coordinates of an 'image'
     @param input_image : the 'image' to be scanned
-    
+    """
     a = b = c = d = 0
     list_x = []
     list_y = []
@@ -117,7 +116,7 @@ def roi_bbox(input_image):
     c = max_value(list_x)[0]
     d = max_value(list_y)[0]
     return numpy.array([[a,b],[a,d],[c,b],[c,d]])
-"""
+
 """
 #testing the roi_bbox function   
 size_rows=10
@@ -299,12 +298,37 @@ we now have 1 3 3 7 9 10 15
 ***We restart going through our vector from the beginning
 there are no permutation, so the the vector is sorted
 2.b) Yes the number of iterations depend on the vector content
-2.c) 14 iterations are needed to sort the vector
+2.c) 4 iterations are needed to sort the vector
 2.d) 13 permutations are applied
-2.e) 19 comparisons are applied
+2.e) 24 comparisons are applied
 2.f) The complexity of this algorithm is O(n^2)
 1.g) In the worst case of vector, we have
 n = 50 : 1225-50 = 1175 permutation, 50(50-1)/2 = 1225 comparisons
 n = 100 : 4950 - 100 = 4850 permutations, 100(100-1)/2 = 4950 comparisons
 n = 500 : 124750 - 500 = 124250 permutations, 500(500-1)/2 = 124750 comparisons
+"""
+
+def sort_bubble(list_in):
+    """
+    Function able to sort a list
+    @param list_in : the list to be sorted
+    """
+    permutations = True
+    while permutations == True:
+        permutations = False
+        for i in xrange(1, len(list_in)):
+            if list_in[i-1] > list_in[i]:
+                tempValue = list_in[i]
+                list_in[i] = list_in[i-1]
+                list_in[i-1] = tempValue
+                permutations = True
+
+    return list_in
+
+"""
+#testing the sort_bubble function
+myList = [10, 15, 7, 1, 3, 3, 9]
+print("list before sorting : " + str(myList))
+myList = sort_bubble(myList)
+print("list after sorting : " + str(myList))
 """
