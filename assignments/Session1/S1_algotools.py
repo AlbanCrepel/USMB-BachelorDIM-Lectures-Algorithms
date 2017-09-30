@@ -163,3 +163,17 @@ filled_table = random_fill_sparse(my_mat,6)
 print("Here is the filled table : " + str(filled_table))
 """
 
+def remove_whitespace(table):
+    """
+    Function able to remove all whitespaces from a string
+    @param table : the string we remove whitespaces from
+    """
+    return table.replace(" ","")
+
+"""
+#testing the random_fill_sparse function  
+myString = "here is a string"
+print("Here is the string with whitespaces : " + myString)
+myString = remove_whitespace(myString)
+print("Here is the string without whitespaces : " + myString)
+"""
