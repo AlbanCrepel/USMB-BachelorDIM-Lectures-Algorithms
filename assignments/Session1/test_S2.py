@@ -5,6 +5,7 @@
 
 import S1_algotools as algo
 import pytest
+import numpy
 
 def test_average_above_zero_with_positive_and_negative_values():
 	"""
@@ -138,3 +139,47 @@ def test_reverse_table_with_event_length():
 
 
 # -----------------------------------------
+
+
+def test_roi_bbox_with_normal_matrix():
+	"""
+	Function that tests the function roi_bbox
+	with a normal matrix
+	"""
+	size_rows=10
+	size_cols=10
+	mat = numpy.zeros([size_rows,size_cols], dtype=int)
+	  
+	#filling the matrix
+	mat[2:4,5:9] = 1   
+	mat[4:7,7:9] = numpy.ones([3,2])  
+	assert algo.roi_bbox(mat).all() == numpy.array([[2,5],[2,8],[6,5],[6,8]]).all()
+
+def test_roi_bbox_with_single_one():
+	"""
+	Function that tests the function roi_bbox
+	with a matrix composed of a single one
+	"""
+	size_rows=10
+	size_cols=10
+	mat = numpy.zeros([size_rows,size_cols], dtype=int)
+	  
+	#filling the matrix
+	mat[2][2] = 1    
+	assert algo.roi_bbox(mat).all() == numpy.array([[2,2],[2,2],[2,2],[2,2]]).all()	
+
+def test_roi_bbox_with_only_zeros():
+	"""
+	Function that tests the function roi_bbox
+	with a matrix composed of zeros only
+	"""
+	size_rows=10
+	size_cols=10
+	mat = numpy.zeros([size_rows,size_cols], dtype=int) 
+	with pytest.raises(ValueError):
+		res = algo.roi_bbox(mat)
+
+
+
+# -----------------------------------------
+

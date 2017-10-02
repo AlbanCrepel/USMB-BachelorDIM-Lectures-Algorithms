@@ -113,7 +113,12 @@ def roi_bbox(input_image):
             if input_image[row][col] == 1:
                 list_x.append(row)
                 list_y.append(col)
-                
+
+    if len(list_x) == 0:
+        raise ValueError("The list of x is empty")
+    if len(list_y) == 0:
+        raise ValueError("The list of y is empty")
+
     a = min_value(list_x)[0]
     b = min_value(list_y)[0]
     c = max_value(list_x)[0]
@@ -128,7 +133,7 @@ my_mat = numpy.zeros([size_rows,size_cols], dtype=int)
   
 #filling the matrix
 my_mat[2:4,5:9] = 1   
-my_mat[4:7,7:9] = numpy.ones([3,2])  
+my_mat[4:7,7:9] = numpy.ones([3,2]) 
 bounding_box = roi_bbox(my_mat)
 print("The bounding box of the matrix is : " + str(bounding_box))
 """
