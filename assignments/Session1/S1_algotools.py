@@ -76,8 +76,9 @@ def reverse_table(table):
     Basic function able to reverse a table
     @param table : the table to be scanned
     """
+
     index_of_opposite_element = len(table) - 1
-    for i in range(len(table) / 2):
+    for i in range(int(len(table) / 2)):
         current_value = table[i]
         table[i] = table[index_of_opposite_element]
         table[index_of_opposite_element] = current_value

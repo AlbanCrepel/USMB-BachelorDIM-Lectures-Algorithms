@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/AlbanCrepel/USMB-BachelorDIM-Lectures-Algorithms/badge.svg)](https://coveralls.io/github/AlbanCrepel/USMB-BachelorDIM-Lectures-Algorithms)
+
 # USMB-BachelorDIM-Lectures-Algorithms
 Short courses on algorithms : practical recommendations to build solid, energy efficient and maintainable programs
 

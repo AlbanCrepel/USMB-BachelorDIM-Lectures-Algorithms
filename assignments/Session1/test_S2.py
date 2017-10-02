@@ -110,3 +110,31 @@ def test_min_value_with_negative_and_positive_values():
 
 
 # -----------------------------------------
+
+def test_reverse_table_with_empty_list():
+	"""
+	Function that tests the function reverse_table
+	with an empty list
+	"""
+	list = []
+	assert algo.reverse_table(list) == []
+
+def test_reverse_table_with_odd_length():
+	"""
+	Function that tests the function reverse_table
+	with a list of odd length
+	"""
+	list = [1,2,3,4,-7]
+	assert list[::-1] == algo.reverse_table(list)
+
+
+def test_reverse_table_with_event_length():
+	"""
+	Function that tests the function reverse_table
+	with a list of event length
+	"""
+	list = [1,2,3,4,5,6]
+	assert list[::-1] == algo.reverse_table(list)
+
+
+# -----------------------------------------
