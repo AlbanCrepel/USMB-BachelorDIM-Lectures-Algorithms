@@ -15,12 +15,14 @@ def average_above_zero(table):
         if i > 0:
             sum += i
             n += 1
+    if n == 0:
+        return 0
     average = float(sum) / float(n)
     return float(average)
 
 """
 #testing average_above_zero function
-my_table = [1,2,3,4,-7]
+my_table = [-1,-2,-3,-4,-7]
 result = average_above_zero(my_table)
 message = "The average of positive elements of {list_values} is : {res}".format(list_values=my_table,res=result)
 print(message)
