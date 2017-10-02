@@ -183,3 +183,49 @@ def test_roi_bbox_with_only_zeros():
 
 # -----------------------------------------
 
+
+def test_random_fill_sparse_with_empty_list():
+	"""
+	Function that tests the function random_fill_sparse
+	with an empty list
+	"""
+	size = 0
+	mat = numpy.full([size,size],'',dtype='str')
+	with pytest.raises(ValueError):
+		res = algo.random_fill_sparse(mat,6)
+
+
+def test_random_fill_sparse_with_number_of_fills_too_high():
+	"""
+	Function that tests the function random_fill_sparse
+	with a number of items to be filled higher than the length of the list
+	"""
+	size = 2
+	mat = numpy.full([size,size],'',dtype='str')
+	with pytest.raises(ValueError):
+		res = algo.random_fill_sparse(mat,36)
+
+
+def test_random_fill_sparse_with_normal_values():
+	"""
+	Function that tests the function random_fill_sparse
+	with normal values
+	"""
+	count = 0
+	size = 6
+	mat = numpy.full([size,size],'',dtype='str')
+
+	rows_length = mat.shape[0]
+	cols_length = mat.shape[1]
+
+	res = algo.random_fill_sparse(mat,6)
+	
+	for row in range(rows_length):
+		for col in range(cols_length):
+			if mat[row][col] == 'X':
+				count += 1
+
+	assert count == 6
+
+
+# -----------------------------------------
