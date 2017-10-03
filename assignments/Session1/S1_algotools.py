@@ -133,12 +133,12 @@ def remove_whitespace(table):
     @param table : the string we remove whitespaces from
     """
 
-    nbOfCharactersDeleted = 0
+    nb_of_characters_deleted = 0
 
     for index,character in enumerate(table):
         if character == " ":
-            table = table[:index - nbOfCharactersDeleted] + table[index-nbOfCharactersDeleted+1 :]
-            nbOfCharactersDeleted += 1
+            table = table[:index - nb_of_characters_deleted] + table[index-nb_of_characters_deleted+1 :]
+            nb_of_characters_deleted += 1
 
     return table
 
@@ -149,11 +149,11 @@ def shuffle(list_in):
     @param list_in : the list to be shuffled
     """
     for n in reversed(range(len(list_in))):
-        randomIndex = random.randint(0, n)
-        indexValue = list_in[randomIndex]
+        random_index = random.randint(0, n)
+        index_value = list_in[random_index]
 
-        list_in[randomIndex] = list_in[n]
-        list_in[n] = indexValue
+        list_in[random_index] = list_in[n]
+        list_in[n] = index_value
 
 
     return list_in
@@ -192,15 +192,15 @@ def sort_selective(list_in):
     @param list_in : the list to be sorted
     """
     for i in range(len(list_in) -1):
-        minIndex = i
+        min_index = i
         for j in range(i, len(list_in)):
-            if list_in[j] < list_in[minIndex]:
-                minIndex = j
+            if list_in[j] < list_in[min_index]:
+                min_index = j
 
-        if minIndex != i:
-            tempValue = list_in[i]
-            list_in[i] = list_in[minIndex]
-            list_in[minIndex] = tempValue
+        if min_index != i:
+            temp_value = list_in[i]
+            list_in[i] = list_in[min_index]
+            list_in[min_index] = temp_value
 
     return list_in
 
@@ -261,9 +261,9 @@ def sort_bubble(list_in):
         permutations = False
         for i in range(1, len(list_in)):
             if list_in[i-1] > list_in[i]:
-                tempValue = list_in[i]
+                temp_value = list_in[i]
                 list_in[i] = list_in[i-1]
-                list_in[i-1] = tempValue
+                list_in[i-1] = temp_value
                 permutations = True
 
     return list_in

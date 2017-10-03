@@ -219,7 +219,7 @@ def test_random_fill_sparse_with_normal_values():
 	rows_length = mat.shape[0]
 	cols_length = mat.shape[1]
 
-	res = algo.random_fill_sparse(mat,6)
+	mat = algo.random_fill_sparse(mat,6)
 	
 	for row in range(rows_length):
 		for col in range(cols_length):
@@ -237,9 +237,9 @@ def test_remove_whitespace_with_empty_string():
 	Function that tests the function remove_whitespace
 	with an empty string
 	"""
-	myString = ""
-	myString = algo.remove_whitespace(myString)
-	assert myString == ""
+	my_string = ""
+	my_string = algo.remove_whitespace(my_string)
+	assert my_string == ""
 
 
 def test_remove_whitespace_with_spaced_string():
@@ -247,10 +247,10 @@ def test_remove_whitespace_with_spaced_string():
 	Function that tests the function remove_whitespace
 	with spaced string
 	"""
-	myString = "here is a string"
-	replacedString = copy.deepcopy(myString).replace(" ","")
-	myString = algo.remove_whitespace(myString)
-	assert myString == replacedString
+	my_string = "here is a string"
+	replaced_string = copy.deepcopy(my_string).replace(" ","")
+	my_string = algo.remove_whitespace(my_string)
+	assert my_string == replaced_string
 
 
 def test_remove_whitespace_with_unspaced_string():
@@ -258,9 +258,9 @@ def test_remove_whitespace_with_unspaced_string():
 	Function that tests the function remove_whitespace
 	with an unspaced string
 	"""
-	myString = "hereisastring"
-	myString = algo.remove_whitespace(myString)
-	assert myString == "hereisastring"
+	my_string = "hereisastring"
+	my_string = algo.remove_whitespace(my_string)
+	assert my_string == "hereisastring"
 
 
 
@@ -283,9 +283,9 @@ def test_shuffle_with_normal_list():
 	with a normal list
 	"""
 	list = range(10)
-	listCopy = copy.deepcopy(list)
+	list_copy = copy.deepcopy(list)
 	list = algo.shuffle(list)
-	assert len(set(list).intersection(listCopy)) == len(list)
+	assert len(set(list).intersection(list_copy)) == len(list)
 
 
 # -----------------------------------------
@@ -307,9 +307,9 @@ def test_sort_selective_with_positive_values():
 	with a list of positive values only
 	"""
 	list = [10, 15, 7, 1, 3, 3, 9]
-	sortedList = sorted(copy.deepcopy(list))
+	sorted_list = sorted(copy.deepcopy(list))
 	list = algo.sort_selective(list)
-	assert list == sortedList
+	assert list == sorted_list
 
 
 def test_sort_selective_with_positive_and_negative_values():
@@ -318,9 +318,9 @@ def test_sort_selective_with_positive_and_negative_values():
 	with a list of both negative and positive values
 	"""
 	list = [10, -15, 7, -1, 3, 3, 9]
-	sortedList = sorted(copy.deepcopy(list))
+	sorted_list = sorted(copy.deepcopy(list))
 	list = algo.sort_selective(list)
-	assert list == sortedList
+	assert list == sorted_list
 
 
 def test_sort_selective_with_negative_values():
@@ -329,9 +329,9 @@ def test_sort_selective_with_negative_values():
 	with a list of negative values only
 	"""
 	list = [-10, -15, -7, -1, -3, -3, -9]
-	sortedList = sorted(copy.deepcopy(list))
+	sorted_list = sorted(copy.deepcopy(list))
 	list = algo.sort_selective(list)
-	assert list == sortedList
+	assert list == sorted_list
 
 
 # -----------------------------------------
@@ -353,9 +353,9 @@ def test_sort_bubble_with_positive_values():
 	with a list of positive values only
 	"""
 	list = [10, 15, 7, 1, 3, 3, 9]
-	sortedList = sorted(copy.deepcopy(list))
+	sorted_list = sorted(copy.deepcopy(list))
 	list = algo.sort_bubble(list)
-	assert list == sortedList
+	assert list == sorted_list
 
 
 def test_sort_bubble_with_positive_and_negative_values():
@@ -364,9 +364,9 @@ def test_sort_bubble_with_positive_and_negative_values():
 	with a list of both negative and positive values
 	"""
 	list = [10, -15, -7, 1, 3, 3, 9]
-	sortedList = sorted(copy.deepcopy(list))
+	sorted_list = sorted(copy.deepcopy(list))
 	list = algo.sort_bubble(list)
-	assert list == sortedList
+	assert list == sorted_list
 
 
 def test_sort_bubble_with_negative_values():
@@ -375,6 +375,6 @@ def test_sort_bubble_with_negative_values():
 	with a list of negative values only
 	"""
 	list = [-10, -15, -7, -1, -3, -3, -9]
-	sortedList = sorted(copy.deepcopy(list))
+	sorted_list = sorted(copy.deepcopy(list))
 	list = algo.sort_bubble(list)
-	assert list == sortedList
+	assert list == sorted_list
