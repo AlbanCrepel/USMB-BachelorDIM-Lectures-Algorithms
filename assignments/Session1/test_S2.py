@@ -248,9 +248,9 @@ def test_remove_whitespace_with_spaced_string():
 	with spaced string
 	"""
 	myString = "here is a string"
-	replacedString = copy.deepcopy(myString)
+	replacedString = copy.deepcopy(myString).replace(" ","")
 	myString = algo.remove_whitespace(myString)
-	assert myString == replacedString.replace(" ","")
+	assert myString == replacedString
 
 
 def test_remove_whitespace_with_unspaced_string():
@@ -287,4 +287,30 @@ def test_shuffle_with_normal_list():
 	list = algo.shuffle(list)
 	assert len(set(list).intersection(listCopy)) == len(list)
 
+
+# -----------------------------------------
+
+
+def test_sort_selective_with_empty_list():
+	"""
+	Function that tests the function sort_selective
+	with an empty list
+	"""
+	list = []
+	list = algo.sort_selective(list)
+	assert list == []
+
+
+def test_sort_selective_with_normal_list():
+	"""
+	Function that tests the function sort_selective
+	with a normal list
+	"""
+	list = [10, 15, 7, 1, 3, 3, 9]
+	sortedList = sorted(copy.deepcopy(list))
+	list = algo.sort_selective(list)
+	assert list == sortedList
+
+
+# -----------------------------------------
 

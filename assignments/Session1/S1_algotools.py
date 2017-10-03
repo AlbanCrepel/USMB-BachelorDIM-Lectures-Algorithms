@@ -249,9 +249,9 @@ def sort_selective(list_in):
     Function able to sort a list
     @param list_in : the list to be sorted
     """
-    for i in xrange(len(list_in) -1):
+    for i in range(len(list_in) -1):
         minIndex = i
-        for j in xrange(i, len(list_in)):
+        for j in range(i, len(list_in)):
             if list_in[j] < list_in[minIndex]:
                 minIndex = j
 
@@ -324,7 +324,7 @@ def sort_bubble(list_in):
     permutations = True
     while permutations == True:
         permutations = False
-        for i in xrange(1, len(list_in)):
+        for i in range(1, len(list_in)):
             if list_in[i-1] > list_in[i]:
                 tempValue = list_in[i]
                 list_in[i] = list_in[i-1]
