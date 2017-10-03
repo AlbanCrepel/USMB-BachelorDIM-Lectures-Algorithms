@@ -314,3 +314,23 @@ def test_sort_selective_with_normal_list():
 
 # -----------------------------------------
 
+
+def test_sort_bubble_with_empty_list():
+	"""
+	Function that tests the function sort_selective
+	with an empty list
+	"""
+	list = []
+	list = algo.sort_bubble(list)
+	assert list == []
+
+
+def test_sort_bubble_with_normal_list():
+	"""
+	Function that tests the function sort_selective
+	with a normal list
+	"""
+	list = [10, 15, 7, 1, 3, 3, 9]
+	sortedList = sorted(copy.deepcopy(list))
+	list = algo.sort_bubble(list)
+	assert list == sortedList
