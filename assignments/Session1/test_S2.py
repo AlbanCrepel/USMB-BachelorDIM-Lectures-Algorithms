@@ -375,6 +375,6 @@ def test_sort_bubble_with_negative_values():
 	with a list of negative values only
 	"""
 	list = [-10, -15, -7, -1, -3, -3, -9]
-	sorted_list = sorted(copy.deepcopy(list))
+	sorted_list = sorted(copy.deepcopy(list)) 
 	list = algo.sort_bubble(list)
 	assert list == sorted_list
