@@ -229,3 +229,38 @@ def test_random_fill_sparse_with_normal_values():
 
 
 # -----------------------------------------
+
+
+def test_remove_whitespace_with_empty_string():
+	"""
+	Function that tests the function remove_whitespace
+	with an empty string
+	"""
+	myString = ""
+	myString = algo.remove_whitespace(myString)
+	assert myString == ""
+
+
+def test_remove_whitespace_with_spaced_string():
+	"""
+	Function that tests the function remove_whitespace
+	with spaced string
+	"""
+	myString = "here is a string"
+	replacedString = myString
+	myString = algo.remove_whitespace(myString)
+	assert myString == replacedString.replace(" ","")
+
+
+def test_remove_whitespace_with_unspaced_string():
+	"""
+	Function that tests the function remove_whitespace
+	with an unspaced string
+	"""
+	myString = "hereisastring"
+	myString = algo.remove_whitespace(myString)
+	assert myString == "hereisastring"
+
+
+	
+# -----------------------------------------
