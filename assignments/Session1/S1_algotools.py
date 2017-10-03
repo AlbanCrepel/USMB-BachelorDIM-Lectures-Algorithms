@@ -3,6 +3,9 @@
 @brief : a set of generic functions for data management
 """
 
+import numpy
+import random
+
 def average_above_zero(table):
     """
     Basic function able to return the average of a list's values
@@ -72,7 +75,6 @@ def reverse_table(table):
     return table
 
 
-import numpy
 def roi_bbox(input_image):
     """
     Function able to compute the corners' coordinates of an 'image'
@@ -102,7 +104,7 @@ def roi_bbox(input_image):
     return numpy.array([[a,b],[a,d],[c,b],[c,d]])
 
 
-import random
+
 def random_fill_sparse(table,vfill):
     """
     Function able to fill a defined number of table cells

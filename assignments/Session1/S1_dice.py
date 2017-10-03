@@ -13,7 +13,7 @@ while playerPoints < 100 and computerPoints < 100 :
 	turnScore = 0
 
 	if playersTurn:
-		print "\n*** Player playing ***"
+		print("\n*** Player playing ***")
 		while wantsToStop == 0 and diceValue != 1:
 			diceValue = random.randint(1, 6)
 			print("Value of the dice : " + str(diceValue))

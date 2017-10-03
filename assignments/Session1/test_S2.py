@@ -301,12 +301,34 @@ def test_sort_selective_with_empty_list():
 	assert list == []
 
 
-def test_sort_selective_with_normal_list():
+def test_sort_selective_with_positive_values():
 	"""
 	Function that tests the function sort_selective
-	with a normal list
+	with a list of positive values only
 	"""
 	list = [10, 15, 7, 1, 3, 3, 9]
+	sortedList = sorted(copy.deepcopy(list))
+	list = algo.sort_selective(list)
+	assert list == sortedList
+
+
+def test_sort_selective_with_positive_and_negative_values():
+	"""
+	Function that tests the function sort_selective
+	with a list of both negative and positive values
+	"""
+	list = [10, -15, 7, -1, 3, 3, 9]
+	sortedList = sorted(copy.deepcopy(list))
+	list = algo.sort_selective(list)
+	assert list == sortedList
+
+
+def test_sort_selective_with_negative_values():
+	"""
+	Function that tests the function sort_selective
+	with a list of negative values only
+	"""
+	list = [-10, -15, -7, -1, -3, -3, -9]
 	sortedList = sorted(copy.deepcopy(list))
 	list = algo.sort_selective(list)
 	assert list == sortedList
@@ -317,7 +339,7 @@ def test_sort_selective_with_normal_list():
 
 def test_sort_bubble_with_empty_list():
 	"""
-	Function that tests the function sort_selective
+	Function that tests the function sort_bubble
 	with an empty list
 	"""
 	list = []
@@ -325,12 +347,34 @@ def test_sort_bubble_with_empty_list():
 	assert list == []
 
 
-def test_sort_bubble_with_normal_list():
+def test_sort_bubble_with_positive_values():
 	"""
-	Function that tests the function sort_selective
-	with a normal list
+	Function that tests the function sort_bubble
+	with a list of positive values only
 	"""
 	list = [10, 15, 7, 1, 3, 3, 9]
+	sortedList = sorted(copy.deepcopy(list))
+	list = algo.sort_bubble(list)
+	assert list == sortedList
+
+
+def test_sort_bubble_with_positive_and_negative_values():
+	"""
+	Function that tests the function sort_bubble
+	with a list of both negative and positive values
+	"""
+	list = [10, -15, -7, 1, 3, 3, 9]
+	sortedList = sorted(copy.deepcopy(list))
+	list = algo.sort_bubble(list)
+	assert list == sortedList
+
+
+def test_sort_bubble_with_negative_values():
+	"""
+	Function that tests the function sort_bubble
+	with a list of negative values only
+	"""
+	list = [-10, -15, -7, -1, -3, -3, -9]
 	sortedList = sorted(copy.deepcopy(list))
 	list = algo.sort_bubble(list)
 	assert list == sortedList
