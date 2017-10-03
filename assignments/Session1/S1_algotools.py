@@ -20,13 +20,6 @@ def average_above_zero(table):
     average = float(sum) / float(n)
     return float(average)
 
-"""
-#testing average_above_zero function
-my_table = [-1,-2,-3,-4,-7]
-result = average_above_zero(my_table)
-message = "The average of positive elements of {list_values} is : {res}".format(list_values=my_table,res=result)
-print(message)
-"""
 
 def max_value(table):
     """
@@ -62,14 +55,6 @@ def min_value(table):
             index_of_min_value = index
     return min_value,index_of_min_value
            
-  
-"""      
-#testing max_value function
-my_table = [1,2,3,4,-7]
-result = max_value(my_table)
-message = "The max value of {list_values} is : {value} at index {index}".format(list_values=my_table,value=result[0],index=result[1])
-print(message)
-"""
 
 def reverse_table(table):
     """
@@ -86,15 +71,6 @@ def reverse_table(table):
         
     return table
 
-"""
-#testingreverse_table function  
-my_table = [1,2,3,4,-7]
-#we store the string of the table because the initial table will change by address
-initial_table = str(my_table)
-reversed_table = reverse_table(my_table)
-message = "The list {initial_table} reversed becomes {reversed_table}".format(initial_table=initial_table,reversed_table=reversed_table)
-print(message)
-"""
 
 import numpy
 def roi_bbox(input_image):
@@ -125,19 +101,6 @@ def roi_bbox(input_image):
     d = max_value(list_y)[0]
     return numpy.array([[a,b],[a,d],[c,b],[c,d]])
 
-"""
-#testing the roi_bbox function   
-size_rows=10
-size_cols=10
-my_mat = numpy.zeros([size_rows,size_cols], dtype=int)
-  
-#filling the matrix
-my_mat[2:4,5:9] = 1   
-my_mat[4:7,7:9] = numpy.ones([3,2]) 
-bounding_box = roi_bbox(my_mat)
-print("The bounding box of the matrix is : " + str(bounding_box))
-"""
-
 
 import random
 def random_fill_sparse(table,vfill):
@@ -163,13 +126,6 @@ def random_fill_sparse(table,vfill):
         
     return table
 
-"""
-#testing the random_fill_sparse function  
-size=6
-my_mat = numpy.full([size,size],'',dtype='str')
-filled_table = random_fill_sparse(my_mat,6)
-print("Here is the filled table : " + str(filled_table))
-"""
 
 def remove_whitespace(table):
     """
@@ -186,13 +142,6 @@ def remove_whitespace(table):
 
     return table
 
-"""
-#testing the remove_whitespace function  
-myString = "here is a string"
-print("Here is the string with whitespaces : " + myString)
-myString = remove_whitespace(myString)
-print("Here is the string without whitespaces : " + myString)
-"""
 
 def shuffle(list_in):
     """
@@ -209,13 +158,6 @@ def shuffle(list_in):
 
     return list_in
 
-"""
-#testing the shuffle function
-myList = range(10)
-print("list before shuffling : " + str(myList))
-myList = shuffle(myList)
-print("list after shuffling : " + str(myList))
-"""
 
 """
 1. Selective Sort
@@ -262,13 +204,6 @@ def sort_selective(list_in):
 
     return list_in
 
-"""
-#testing the sort_selective function
-myList = [10, 15, 7, 1, 3, 3, 9]
-print("list before sorting : " + str(myList))
-myList = sort_selective(myList)
-print("list after sorting : " + str(myList))
-"""
 
 """
 2. Bubble Sort
@@ -332,11 +267,3 @@ def sort_bubble(list_in):
                 permutations = True
 
     return list_in
-
-"""
-#testing the sort_bubble function
-myList = [10, 15, 7, 1, 3, 3, 9]
-print("list before sorting : " + str(myList))
-myList = sort_bubble(myList)
-print("list after sorting : " + str(myList))
-"""
