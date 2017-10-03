@@ -92,10 +92,8 @@ def roi_bbox(input_image):
                 list_x.append(row)
                 list_y.append(col)
 
-    if len(list_x) == 0:
-        raise ValueError("The list of x is empty")
-    if len(list_y) == 0:
-        raise ValueError("The list of y is empty")
+    if len(list_x) == 0 or len(list_y) == 0:
+        raise ValueError("The lists are empty")
 
     a = min_value(list_x)[0]
     b = min_value(list_y)[0]
