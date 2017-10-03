@@ -199,7 +199,7 @@ def shuffle(list_in):
     Function able to randomly select items of a list
     @param list_in : the list to be shuffled
     """
-    for n in reversed(xrange(len(list_in))):
+    for n in reversed(range(len(list_in))):
         randomIndex = random.randint(0, n)
         indexValue = list_in[randomIndex]
 

@@ -6,6 +6,7 @@
 import S1_algotools as algo
 import pytest
 import numpy
+import copy
 
 def test_average_above_zero_with_positive_and_negative_values():
 	"""
@@ -247,7 +248,7 @@ def test_remove_whitespace_with_spaced_string():
 	with spaced string
 	"""
 	myString = "here is a string"
-	replacedString = myString
+	replacedString = copy.deepcopy(myString)
 	myString = algo.remove_whitespace(myString)
 	assert myString == replacedString.replace(" ","")
 
@@ -262,5 +263,28 @@ def test_remove_whitespace_with_unspaced_string():
 	assert myString == "hereisastring"
 
 
-	
+
 # -----------------------------------------
+
+
+def test_shuffle_with_empty_list():
+	"""
+	Function that tests the function shuffle
+	with an empty list
+	"""
+	list = []
+	list = algo.shuffle(list)
+	assert list == []
+
+
+def test_shuffle_with_normal_list():
+	"""
+	Function that tests the function shuffle
+	with a normal list
+	"""
+	list = range(10)
+	listCopy = copy.deepcopy(list)
+	list = algo.shuffle(list)
+	assert len(set(list).intersection(listCopy)) == len(list)
+
+
